@@ -1,0 +1,16 @@
+  
+---
+
+AllCops:
+  Exclude:
+    - 'bin/**'
+    - 'db/schema.rb'
+    - 'db/migrate/**'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
