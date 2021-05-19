@@ -1,5 +1,6 @@
-
 .PHONY: test
+setup:
+	bin/rails db:setup
 run:
 	bin/rails server
 console:
