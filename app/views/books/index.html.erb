@@ -17,6 +17,17 @@
         <td><%= book.name %></td>
         <td><%= book.authors %></td>
         <td><%= book.annotation %></td>
+        <td>
+            <% if book.cover.attached? %>
+                <%= image_tag(book.cover, {
+                    :class => "img-thumbnail rounded",
+                    :width => 200,
+                    :height => 200
+                }) %>
+            <% else %>
+                <p>no image</p>
+            <% end %>
+        </td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
