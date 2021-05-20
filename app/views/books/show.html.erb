@@ -17,7 +17,13 @@
 
 <p>
     <strong>Cover:</strong>
-    <%= image_tag(@book.cover) %>
+    <% if @book.cover.attached? %>
+        <%= image_tag(book.cover, {
+            :class => "img-thumbnail rounded"
+        }) %>
+    <% else %>
+        <p>No image</p>
+    <% end %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
