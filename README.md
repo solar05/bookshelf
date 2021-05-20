@@ -1,3 +1,4 @@
+[![CI](https://github.com/solar05/bookshelf/actions/workflows/CI.yml/badge.svg)](https://github.com/solar05/bookshelf/actions/workflows/CI.yml)
 # README
 
 This README would normally document whatever steps are necessary to get the
