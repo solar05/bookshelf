@@ -22,7 +22,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
       post books_url, params: { book: { annotation: @book.annotation, authors: @book.authors, name: @book.name } }
     end
 
-    assert_redirected_to book_url(Book.last)
+    assert_redirected_to book_url(Book.last, locale: 'en')
   end
 
   test 'should show book' do
@@ -37,7 +37,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update book' do
     patch book_url(@book), params: { book: { annotation: @book.annotation, authors: @book.authors, name: @book.name } }
-    assert_redirected_to book_url(@book)
+    assert_redirected_to book_url(@book, locale: 'en')
   end
 
   test 'should destroy book' do
@@ -45,6 +45,6 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
       delete book_url(@book)
     end
 
-    assert_redirected_to books_url
+    assert_redirected_to books_url(locale: 'en')
   end
 end
