@@ -9,8 +9,24 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+          <a class="navbar-brand">
+              <%= image_tag("bookshelf.png", width: 40, height: 40) %><%= t("bookshelf") %></a>
+          <% if I18n.locale == :ru %>
+              <%= link_to("en", options = {controller: controller_name, action: action_name, locale: :en}, class: "link-secondary text-uppercase mx-2") %>
+          <% elsif I18n.locale == :en %>
+
+              <%= link_to("ru", options = {controller: controller_name, action: action_name, locale: :ru}, class: "link-secondary text-uppercase mx-2") %>
+          <% end %>
+
+          </div>
+      </div>
+  </nav>
 
   <body>
-    <%= yield %>
+      <div class="container">
+          <%= yield %>
+      </div>
   </body>
 </html>

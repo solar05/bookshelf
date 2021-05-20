@@ -18,7 +18,7 @@
 <p>
     <strong>Cover:</strong>
     <% if @book.cover.attached? %>
-        <%= image_tag(book.cover, {
+        <%= image_tag(@book.cover, {
             :class => "img-thumbnail rounded"
         }) %>
     <% else %>
