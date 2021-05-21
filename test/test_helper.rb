@@ -2,9 +2,7 @@
 
 ENV['RAILS_ENV'] ||= 'test'
 require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter '/test/'
-end
+SimpleCov.start 'rails'
 Rails.application.eager_load!
 if ENV['CI'] == 'true'
   require 'codecov'
@@ -15,7 +13,6 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
-  parallelize(workers: :number_of_processors)
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
