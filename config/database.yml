@@ -20,7 +20,7 @@ development:
   database: 'bookshelf_dev'
   username: 'postgres'
   password: 'postgres'
-  host: 'localhost'
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
   pool: 10
 
 # Warning: The database defined as "test" will be erased and
@@ -31,7 +31,7 @@ test:
   database: 'bookshelf_test'
   username: 'postgres'
   password: 'postgres'
-  host: 'localhost'
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
   pool: 10
 
 production:
