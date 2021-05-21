@@ -8,6 +8,7 @@ AllCops:
     - 'db/migrate/**'
     - 'vendor/**/*'
     - 'node_modules/**/*'
+  SuggestExtensions: false
 
 Style/ClassAndModuleChildren:
   Enabled: false

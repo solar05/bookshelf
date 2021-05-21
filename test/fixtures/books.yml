@@ -3,9 +3,9 @@
 one:
   name: MyString
   authors: MyString
-  annotation: MyString
+  annotation: MyStringAnnotations
 
 two:
   name: MyString
   authors: MyString
-  annotation: MyString
+  annotation: MyStringAnnotations

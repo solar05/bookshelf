@@ -25,6 +25,13 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to book_url(Book.last, locale: 'en')
   end
 
+  test 'shouldn`t create book' do
+    assert_no_difference('Book.count') do
+      post books_url, params: { book: { annotation: '', authors: '', name: '' } }
+    end
+    assert_response 422
+  end
+
   test 'should show book' do
     get book_url(@book)
     assert_response :success
@@ -38,6 +45,11 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   test 'should update book' do
     patch book_url(@book), params: { book: { annotation: @book.annotation, authors: @book.authors, name: @book.name } }
     assert_redirected_to book_url(@book, locale: 'en')
+  end
+
+  test 'shouldn`t update book' do
+    patch book_url(@book), params: { book: { annotation: '', authors: '', name: '' } }
+    assert_response 422
   end
 
   test 'should destroy book' do
