@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
 ENV['RAILS_ENV'] ||= 'test'
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter '/test/'
+end
+Rails.application.eager_load!
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 require_relative '../config/environment'
 require 'rails/test_help'
 

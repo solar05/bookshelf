@@ -21,3 +21,5 @@ compose-setup:
   docker-compose build; \
   docker-compose run --rm web bash -c "bundle install"; \
   docker-compose run --rm web bash -c "make setup"
+compose-test:
+	  docker-compose run --rm web bash -c "make test"; \
