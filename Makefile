@@ -21,5 +21,7 @@ compose-setup:
   docker-compose build; \
   docker-compose run --rm web bash -c "bundle install"; \
   docker-compose run --rm web bash -c "make setup"
+compose-lint:
+	  docker-compose run --rm web bash -c "make lint"
 compose-test:
-	  docker-compose run --rm web bash -c "make test"; \
+	  docker-compose run --rm web bash -c "make test"
