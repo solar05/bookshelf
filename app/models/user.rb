@@ -4,7 +4,7 @@ class User < ApplicationRecord
   attr_accessor :password
 
   before_save :encrypt_password
-  validates :password, presence: true, on: :create, confirmation: true
+  validates :password, presence: true, on: :create, confirmation: true, length: { minimum: 6 }
   validates :email, uniqueness: true, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def self.authenticate(email, password)
