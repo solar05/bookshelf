@@ -2,7 +2,7 @@
 
 class Book < ApplicationRecord
   has_one_attached :cover
-  paginates_per 5
+  paginates_per 6
   belongs_to :user
   validates :name, presence: true, length: { minimum: 4 }
   validates :annotation, presence: true, length: { minimum: 10 }

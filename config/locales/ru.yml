@@ -2,6 +2,10 @@ ru:
   bookshelf: "Книжная полка"
   books:
     index: "Книги"
+    new: "Добавить книгу"
+    show: "Подробнее"
+    edit: "Изменить"
+    destroy: "Удалить"
   views:
     pagination:
       first: "&laquo; Начало"

@@ -9,13 +9,14 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-light bg-light border border-secondary mb-4">
       <div class="container-fluid">
           <a class="navbar-brand">
               <%= image_tag("bookshelf.png", width: 40, height: 40) %><%= t("bookshelf") %></a>
           <div class="btn-group" role="group" aria-label="User actions">
           <% if current_user %>
               <button type="button" class="btn btn-outline-primary" disabled><%= current_user.email %></button>
+              <%= link_to t("books.new"), new_book_path, class: "btn btn-primary" %>
 
               <%= link_to(t("books.index"), books_url, class: "btn btn-primary") %>
 

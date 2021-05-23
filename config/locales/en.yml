@@ -33,6 +33,10 @@ en:
   bookshelf: "Bookshelf"
   books:
     index: "Books list"
+    new: "New book"
+    show: "Show"
+    edit: "Edit"
+    destroy: "Destroy"
   views:
     pagination:
       first: "&laquo; First"
