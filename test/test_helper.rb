@@ -22,6 +22,18 @@ class ActiveSupport::TestCase
     User.create({ email: 'some@email.com', password: 'password' })
   end
 
+  def prepare_another_user
+    User.create({ email: 'somedifferent@email.com', password: 'password123' })
+  end
+
+  def prepare_book(user, fixture)
+    book = books(fixture)
+    new_book = Book.new({ name: book.name, authors: book.authors, annotation: book.annotation })
+    new_book.user = user
+    new_book.save
+    new_book
+  end
+
   def sign_in_as(user)
     post sessions_url, params: { email: user.email, password: user.password }
   end
