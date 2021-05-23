@@ -3,6 +3,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
   before_action :require_login
+  before_action :can_access_book?, only: %i[show edit update destroy]
 
   # GET /books or /books.json
   def index
@@ -37,7 +38,6 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
-    @book.user = current_user
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
@@ -76,6 +76,15 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to log_in_path, alert: t('flash.session.login_required') }
       format.json { head :no_content, status: 401 }
+    end
+  end
+
+  def can_access_book?
+    return if @book.user.id == current_user.id
+
+    respond_to do |format|
+      format.html { redirect_to books_url, alert: t('flash.session.forbidden') }
+      format.json { head :no_content, status: 403 }
     end
   end
 end

@@ -6,6 +6,6 @@ one:
   annotation: MyStringAnnotations
 
 two:
-  name: MyString
-  authors: MyString
-  annotation: MyStringAnnotations
+  name: SomeName
+  authors: SomeAuthors
+  annotation: SomeAnnotations
