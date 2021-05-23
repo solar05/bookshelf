@@ -8,6 +8,7 @@ AllCops:
     - 'db/migrate/**'
     - 'vendor/**/*'
     - 'node_modules/**/*'
+    - 'db/seeds.rb'
   SuggestExtensions: false
   NewCops: enable
 
