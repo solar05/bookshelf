@@ -1,5 +1,7 @@
 ru:
   bookshelf: "Книжная полка"
+  books:
+    index: "Книги"
   views:
     pagination:
       first: "&laquo; Начало"
@@ -7,3 +9,15 @@ ru:
       previous: "&lsaquo; Пред"
       next: "След &rsaquo;"
       truncate: "&hellip;"
+  session:
+    log_in: "Войти"
+    log_out: "Выйти"
+    sign_up: "Зарегистрироваться"
+    confirm: "Действительно выйти?"
+  flash:
+    session:
+      logged: "Успешный вход!"
+      logged_out: "Успешный выход!"
+      signed: "Регистрация завершилaсь успешно!"
+      login_required: "Требуется авторизация."
+      forbidden: "Доступ к книге запрещен."

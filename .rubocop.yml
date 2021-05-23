@@ -9,9 +9,13 @@ AllCops:
     - 'vendor/**/*'
     - 'node_modules/**/*'
   SuggestExtensions: false
+  NewCops: enable
 
 Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
   Enabled: false

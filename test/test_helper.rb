@@ -18,4 +18,15 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def prepare_user
+    User.create({ email: 'some@email.com', password: 'password' })
+  end
+
+  def sign_in_as(user)
+    post sessions_url, params: { email: user.email, password: user.password }
+  end
+
+  def logout
+    get log_out_url
+  end
 end

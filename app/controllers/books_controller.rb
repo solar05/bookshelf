@@ -2,10 +2,11 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
+  before_action :require_login
 
   # GET /books or /books.json
   def index
-    @books = Book.page(params[:page])
+    @books = Book.where(user: current_user).page(params[:page])
   end
 
   # GET /books/1 or /books/1.json
@@ -22,7 +23,7 @@ class BooksController < ApplicationController
   # POST /books or /books.json
   def create
     @book = Book.new(book_params)
-
+    @book.user = current_user
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
@@ -36,6 +37,7 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
+    @book.user = current_user
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
@@ -66,5 +68,14 @@ class BooksController < ApplicationController
   # Only allow a list of trusted parameters through.
   def book_params
     params.require(:book).permit(:name, :authors, :annotation, :cover)
+  end
+
+  def require_login
+    return if current_user
+
+    respond_to do |format|
+      format.html { redirect_to log_in_path, alert: t('flash.session.login_required') }
+      format.json { head :no_content, status: 401 }
+    end
   end
 end

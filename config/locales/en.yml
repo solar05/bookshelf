@@ -31,6 +31,8 @@
 
 en:
   bookshelf: "Bookshelf"
+  books:
+    index: "Books list"
   views:
     pagination:
       first: "&laquo; First"
@@ -38,3 +40,15 @@ en:
       previous: "&lsaquo; Prev"
       next: "Next &rsaquo;"
       truncate: "&hellip;"
+  session:
+    log_in: "Log in"
+    log_out: "Log out"
+    sign_up: "Sign up"
+    confirm: "Log out?"
+  flash:
+    session:
+      logged: "Logged in!"
+      logged_out: "Logged out!"
+      signed: "Succesfully signed up!"
+      login_required: "Auth required."
+      forbidden: "Access to the book is forbidden."
