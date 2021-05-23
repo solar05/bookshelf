@@ -22,7 +22,10 @@
             :class => "img-thumbnail rounded"
         }) %>
     <% else %>
-        <p>No image</p>
+        <%= image_tag(image_path("cover_missing.png"),
+                      class: "card-img-top",
+                      width: 100,
+                      height: 400) %>
     <% end %>
 </p>
 

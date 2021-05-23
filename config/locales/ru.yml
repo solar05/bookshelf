@@ -1,5 +1,32 @@
 ru:
   bookshelf: "Книжная полка"
+  helpers:
+    submit:
+      create: "Создать %{model}"
+      submit: "Сохранить %{model}"
+      update: "Изменить %{model}"
+  activerecord:
+    models:
+      user:
+        one: "пользователя"
+        other: "Пользователи"
+    attributes:
+      user:
+        password: "Пароль"
+        email: "Почтовый адрес"
+        password_confirmation: "Подтверждение пароля"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: "отсутствует!"
+              blank: "отсутствует!"
+              too_short: "слишком короткий!"
+            password_confirmation:
+              confirmation: "отсутствует!"
+            email:
+              invalid: "некорректный!"
   books:
     index: "Книги"
     new: "Добавить книгу"
@@ -18,10 +45,15 @@ ru:
     log_out: "Выйти"
     sign_up: "Зарегистрироваться"
     confirm: "Действительно выйти?"
+    auth: "Авторизация"
+    not_registered: "Отсутствует аккаунт? Создайте новый."
+    registered: "Уже есть аккаунт?"
   flash:
     session:
       logged: "Успешный вход!"
       logged_out: "Успешный выход!"
-      signed: "Регистрация завершилaсь успешно!"
+      signed: "Регистрация завершилaсь успешно! Теперь вы можете войти."
       login_required: "Требуется авторизация."
       forbidden: "Доступ к книге запрещен."
+      incorrect_credentionals: "Неправильный адрес или пароль!"
+      already_logged: "Вы уже авторизированы!"

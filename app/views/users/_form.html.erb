@@ -1,4 +1,7 @@
-<%= form_with(model: user) do |form| %>
+<div class="card w-50 mx-auto rounded">
+    <h1 class="card-title text-center border-bottom mb-4 pb-2 bg-secondary text-white rounded-top"><%=  t('session.sign_up') %></h1>
+    <div class="card-body text-center">
+    <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,23 +14,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="form-group">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+  <div class="form-group">
+      <%= form.label :password %>
+      <%= form.text_field :password, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.text_field :password_confirmation %>
+  <div class="form-group">
+      <%= form.label :password_confirmation %>
+      <%= form.text_field :password_confirmation, class: "form-control" %>
   </div>
 
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+      <%= form.submit class: "btn btn-primary w-100 mt-2" %>
   </div>
-<% end %>
+    <% end %>
+    <%= link_to(t("session.registered"), log_in_path, class: "link-primary") %>
+
+    </div>
+</div>

@@ -31,6 +31,33 @@
 
 en:
   bookshelf: "Bookshelf"
+  helpers:
+    submit:
+      create: "Create %{model}"
+      submit: "Save %{model}"
+      update: "Update %{model}"
+  activerecord:
+    models:
+      user:
+        one: "user"
+        many: "Users"
+    attributes:
+      user:
+        password: "Password"
+        email: "Email"
+        password_confirmation: "Password confirmation"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: "confirmation missing!"
+              blank: "is missing!"
+              too_short: "too short!"
+            password_confirmation:
+              confirmation: "Введите подтверждение пароля!"
+            email:
+              invalid: "Некорректный адрес почты!"
   books:
     index: "Books list"
     new: "New book"
@@ -49,10 +76,15 @@ en:
     log_out: "Log out"
     sign_up: "Sign up"
     confirm: "Log out?"
+    auth: "Authorization"
+    not_registered: "No account? Create a new one."
+    registered: "Have account already?"
   flash:
     session:
       logged: "Logged in!"
       logged_out: "Logged out!"
-      signed: "Succesfully signed up!"
+      signed: "Succesfully signed up! Now you can log in."
       login_required: "Auth required."
       forbidden: "Access to the book is forbidden."
+      incorrect_credentionals: "Invalid email or password!"
+      already_logged: "Already logged!"

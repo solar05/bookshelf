@@ -20,7 +20,7 @@
 
               <%= link_to(t("books.index"), books_url, class: "btn btn-primary") %>
 
-              <%= link_to(t("session.log_out"), log_out_path, data: {confirm: t("session.confirm")}, class: "btn btn-primary") %>
+              <%= link_to(t("session.log_out"), log_out_path, method: :delete, data: {confirm: t("session.confirm")}, class: "btn btn-primary") %>
 
           <% else %>
               <%= link_to(t("session.sign_up"), sign_up_path, class: "btn btn-primary") %>
