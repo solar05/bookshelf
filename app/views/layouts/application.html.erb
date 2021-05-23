@@ -13,12 +13,26 @@
       <div class="container-fluid">
           <a class="navbar-brand">
               <%= image_tag("bookshelf.png", width: 40, height: 40) %><%= t("bookshelf") %></a>
+          <div class="btn-group" role="group" aria-label="User actions">
+          <% if current_user %>
+              <button type="button" class="btn btn-outline-primary" disabled><%= current_user.email %></button>
+
+              <%= link_to(t("books.index"), books_url, class: "btn btn-primary") %>
+
+              <%= link_to(t("session.log_out"), log_out_path, data: {confirm: t("session.confirm")}, class: "btn btn-primary") %>
+
+          <% else %>
+              <%= link_to(t("session.sign_up"), sign_up_path, class: "btn btn-primary") %>
+              <%= link_to(t("session.log_in"), log_in_path, class: "btn btn-primary") %>
+          <% end %>
+
           <% if I18n.locale == :ru %>
-              <%= link_to("en", options = {controller: controller_name, action: action_name, locale: :en}, class: "link-secondary text-uppercase mx-2") %>
+              <%= link_to("en", options = {controller: controller_name, action: action_name, locale: :en}, class: "btn btn-primary text-uppercase mr-2") %>
           <% elsif I18n.locale == :en %>
 
-              <%= link_to("ru", options = {controller: controller_name, action: action_name, locale: :ru}, class: "link-secondary text-uppercase mx-2") %>
+              <%= link_to("ru", options = {controller: controller_name, action: action_name, locale: :ru}, class: "btn btn-primary text-uppercase mr-2") %>
           <% end %>
+          </div>
 
           </div>
       </div>
@@ -26,6 +40,12 @@
 
   <body>
       <div class="container">
+          <% if notice %>
+              <div class="alert alert-success" role="alert"><%= notice %></div>
+          <% end %>
+          <% if alert %>
+              <div class="alert alert-danger" role="alert"><%= alert %></div>
+          <% end %>
           <%= yield %>
       </div>
   </body>

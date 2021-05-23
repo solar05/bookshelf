@@ -5,11 +5,19 @@ require 'test_helper'
 class BooksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @book = books(:one)
+    @user = prepare_user
+    sign_in_as(@user)
   end
 
   test 'should get index' do
     get books_url
     assert_response :success
+  end
+
+  test 'should require auth' do
+    logout
+    get books_url
+    assert_redirected_to log_in_url(locale: 'en')
   end
 
   test 'should get new' do
