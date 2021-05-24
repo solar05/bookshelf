@@ -17,10 +17,10 @@ services:
       GEM_HOME: /bundle_cache
       GEM_PATH: /bundle_cache
       RAILS_PORT: 3000
+      RAILS_ENV: development
       DATABASE_HOST: db
       RUBYOPT: -W:no-deprecated -W:no-experimental
     command: bundle exec rails s -b '0.0.0.0' -p 3000
-
   db:
     image: postgres:11.4
     ports:
@@ -29,5 +29,18 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
 
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    depends_on:
+      - web
+    tty: true
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
 volumes:
   bundle_cache:
