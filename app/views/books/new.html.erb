@@ -1,5 +1,4 @@
-<h1>New Book</h1>
-
-<%= render 'form', book: @book %>
-
-<%= link_to 'Back', books_path %>
+<div class="card w-75 mx-auto rounded">
+    <h1 class="card-title text-center border-bottom mb-4 pb-2 bg-secondary text-white rounded-top"><%=  t('books.creating') %></h1>
+    <%= render 'form', book: @book %>
+</div>

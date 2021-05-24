@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  def new; end
-
   def create
     user = User.authenticate(params[:email], params[:password])
     respond_to do |format|
@@ -10,7 +8,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         format.html { redirect_to books_url, notice: t('flash.session.logged') }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to log_in_path, alert: t('flash.session.incorrect_credentionals') }
       end
     end
   end

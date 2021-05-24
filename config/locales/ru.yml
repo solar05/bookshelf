@@ -1,7 +1,62 @@
 ru:
   bookshelf: "Книжная полка"
+  helpers:
+    submit:
+      create: "Создать %{model}"
+      submit: "Сохранить %{model}"
+      update: "Изменить %{model}"
+  activerecord:
+    models:
+      user:
+        one: "пользователя"
+      book:
+        one: "книгу"
+    attributes:
+      user:
+        password: "Пароль"
+        email: "Почтовый адрес"
+        password_confirmation: "Подтверждение пароля"
+      book:
+        name: "Название"
+        authors: "Автор/авторы"
+        annotation: "Аннотация"
+        cover: "Обложка"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: "отсутствует!"
+              blank: "отсутствует!"
+              too_short: "слишком короткий! (минимум 6)"
+            password_confirmation:
+              confirmation: "отсутствует!"
+            email:
+              invalid: "некорректный!"
+              taken: "уже зарегистрирован!"
+        book:
+          attributes:
+            name:
+              blank: "не должно быть пустым!"
+              too_short: "слишком короткое! (минимум 4)"
+            annotation:
+              blank: "не должна быть пустой!"
+              too_short: "слишком коротка! (минимум 10)"
+            authors:
+              blank: "не должно быть пустым!"
   books:
     index: "Книги"
+    new: "Добавить карточку"
+    creating: "Добавление карточки"
+    show: "Подробнее"
+    edit: "Изменить"
+    editing: "Редактирование карточки"
+    destroy: "Удалить"
+    created: "Книжная карточка успешно создана!"
+    updated: "Книжная карточка успешно обновлена!"
+    destroyed: "Книжная карточка успешно удалена!"
+    confirm_delete: "Вы действительно хотите удалить карточку?"
+    back: "Назад"
   views:
     pagination:
       first: "&laquo; Начало"
@@ -14,10 +69,15 @@ ru:
     log_out: "Выйти"
     sign_up: "Зарегистрироваться"
     confirm: "Действительно выйти?"
+    auth: "Авторизация"
+    not_registered: "Отсутствует аккаунт? Создайте новый."
+    registered: "Уже есть аккаунт?"
   flash:
     session:
       logged: "Успешный вход!"
       logged_out: "Успешный выход!"
-      signed: "Регистрация завершилaсь успешно!"
+      signed: "Регистрация завершилaсь успешно! Теперь вы можете войти."
       login_required: "Требуется авторизация."
       forbidden: "Доступ к книге запрещен."
+      incorrect_credentionals: "Неправильный адрес или пароль!"
+      already_logged: "Вы уже авторизированы!"

@@ -31,8 +31,63 @@
 
 en:
   bookshelf: "Bookshelf"
+  helpers:
+    submit:
+      create: "Create %{model}"
+      submit: "Save %{model}"
+      update: "Update %{model}"
+  activerecord:
+    models:
+      user:
+        one: "user"
+      book:
+        one: "book"
+    attributes:
+      user:
+        password: "Password"
+        email: "Email"
+        password_confirmation: "Password confirmation"
+      book:
+        name: "Name"
+        authors: "Authors"
+        annotation: "Annotation"
+        cover: "Cover"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: "confirmation missing!"
+              blank: "is missing!"
+              too_short: "too short! (minimum 6)"
+            password_confirmation:
+              confirmation: "needs confirmation!"
+            email:
+              invalid: "has incorrect form!"
+              taken: "already taken!"
+        book:
+          attributes:
+            name:
+              blank: "is missing!"
+              too_short: "too short! (minimum 4)"
+            annotation:
+              blank: "is missing!"
+              too_short: "too short! (minimum 10)"
+            authors:
+              blank: "is missing!"
   books:
     index: "Books list"
+    new: "New book"
+    creating: "Book creating"
+    show: "Show"
+    edit: "Edit"
+    editing: "Book editing"
+    destroy: "Destroy"
+    created: "Book was successfully created!"
+    updated: "Book was successfully updated!"
+    destroyed: "Boook was successfully destroyed!"
+    confirm_delete: "Are you sure?"
+    back: "Back"
   views:
     pagination:
       first: "&laquo; First"
@@ -45,10 +100,15 @@ en:
     log_out: "Log out"
     sign_up: "Sign up"
     confirm: "Log out?"
+    auth: "Authorization"
+    not_registered: "No account? Create a new one."
+    registered: "Have account already?"
   flash:
     session:
       logged: "Logged in!"
       logged_out: "Logged out!"
-      signed: "Succesfully signed up!"
+      signed: "Succesfully signed up! Now you can log in."
       login_required: "Auth required."
       forbidden: "Access to the book is forbidden."
+      incorrect_credentionals: "Invalid email or password!"
+      already_logged: "Already logged!"

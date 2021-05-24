@@ -39,6 +39,6 @@ class ActiveSupport::TestCase
   end
 
   def logout
-    get log_out_url
+    delete log_out_url
   end
 end

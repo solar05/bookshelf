@@ -1,6 +1,4 @@
-<h1>Editing Book</h1>
-
-<%= render 'form', book: @book %>
-
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+<div class="card w-75 mx-auto rounded">
+    <h1 class="card-title text-center border-bottom mb-4 pb-2 bg-secondary rounded-top"><%=  link_to t('books.editing'), @book, class: "text-white" %></h1>
+    <%= render 'form', book: @book %>
+</div>
