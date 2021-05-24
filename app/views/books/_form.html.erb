@@ -1,37 +1,40 @@
-<%= form_with(model: book) do |form| %>
-  <% if book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
-
-      <ul>
-        <% book.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<div class="card-body text-center">
+    <%= form_with(model: book) do |form| %>
+        <% if book.errors.any? %>
+            <div id="error_explanation">
+                <ul class="list-group mb-2">
+                    <% book.errors.each do |error| %>
+                        <li class="list-group-item list-group-item-danger">
+                            <%= error.full_message %>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <div class="form-group">
+            <div class="field">
+                <%= form.label :name %>
+                <%= form.text_field :name, class: "form-control" %>
+            </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+            <div class="field">
+                <%= form.label :authors %>
+                <%= form.text_field :authors, class: "form-control" %>
+            </div>
 
-  <div class="field">
-    <%= form.label :authors %>
-    <%= form.text_field :authors %>
-  </div>
+            <div class="field">
+                <%= form.label :annotation %>
+                <%= form.text_area :annotation, rows: "3", class: "form-control" %>
+            </div>
 
-  <div class="field">
-    <%= form.label :annotation %>
-    <%= form.text_field :annotation %>
-  </div>
+            <div class="field">
+                <%= form.label :cover, class: "form-label" %>
+                <%= form.file_field :cover, class: "form-control" %>
+            </div>
 
-  <div class="field">
-      <%= form.label :cover %>
-      <%= form.file_field :cover %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+            <div class="actions">
+                <%= form.submit class: "btn btn-primary w-100 mt-2" %>
+            </div>
+        </div>
+    <% end %>
+</div>

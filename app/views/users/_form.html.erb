@@ -3,15 +3,15 @@
     <div class="card-body text-center">
     <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+      <div id="error_explanation">
+          <ul class="list-group mb-2">
+              <% user.errors.each do |error| %>
+                  <li class="list-group-item list-group-item-danger">
+                      <%= error.full_message %>
+                  </li>
+              <% end %>
+          </ul>
+      </div>
   <% end %>
 
   <div class="form-group">

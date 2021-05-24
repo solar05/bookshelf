@@ -40,12 +40,18 @@ en:
     models:
       user:
         one: "user"
-        many: "Users"
+      book:
+        one: "book"
     attributes:
       user:
         password: "Password"
         email: "Email"
         password_confirmation: "Password confirmation"
+      book:
+        name: "Name"
+        authors: "Authors"
+        annotation: "Annotation"
+        cover: "Cover"
     errors:
       models:
         user:
@@ -53,17 +59,35 @@ en:
             password:
               confirmation: "confirmation missing!"
               blank: "is missing!"
-              too_short: "too short!"
+              too_short: "too short! (minimum 6)"
             password_confirmation:
-              confirmation: "Введите подтверждение пароля!"
+              confirmation: "needs confirmation!"
             email:
-              invalid: "Некорректный адрес почты!"
+              invalid: "has incorrect form!"
+              taken: "already taken!"
+        book:
+          attributes:
+            name:
+              blank: "is missing!"
+              too_short: "too short! (minimum 4)"
+            annotation:
+              blank: "is missing!"
+              too_short: "too short! (minimum 10)"
+            authors:
+              blank: "is missing!"
   books:
     index: "Books list"
     new: "New book"
+    creating: "Book creating"
     show: "Show"
     edit: "Edit"
+    editing: "Book editing"
     destroy: "Destroy"
+    created: "Book was successfully created!"
+    updated: "Book was successfully updated!"
+    destroyed: "Boook was successfully destroyed!"
+    confirm_delete: "Are you sure?"
+    back: "Back"
   views:
     pagination:
       first: "&laquo; First"
