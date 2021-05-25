@@ -4,6 +4,8 @@ setup:
 	bin/rails db:migrate
 run:
 	bin/rails server
+assets:
+	bin/rails assets:precompile
 console:
 	bin/rails console
 lint:
@@ -20,6 +22,7 @@ compose-setup:
 	docker build -t bookshelf .; \
   docker-compose build; \
   docker-compose run --rm web bash -c "bundle install"; \
+  docker-compose run --rm web bash -c "make assets"; \
   docker-compose run --rm web bash -c "make setup"
 compose-lint:
 	  docker-compose run --rm web bash -c "make lint"
