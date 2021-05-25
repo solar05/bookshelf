@@ -17,6 +17,12 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to books_url(locale: 'en')
   end
 
+  test 'should redirect when logged' do
+    post sessions_url, params: { email: @user.email, password: @user.password }
+    get log_in_path
+    assert_redirected_to books_url(locale: 'en')
+  end
+
   test 'shouldn`t create session' do
     post sessions_url, params: { email: @user.email, password: 'incorrect' }
     assert_redirected_to log_in_path(locale: 'en')

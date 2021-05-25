@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  before_action :logged?, only: %i[create new]
+  def new; end
+
   def create
     user = User.authenticate(params[:email], params[:password])
     respond_to do |format|
