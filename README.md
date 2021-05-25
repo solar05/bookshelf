@@ -5,5 +5,6 @@ An app that saves information about books you like.
 ## Setup and development
 Firstly, setup ruby 2.7.3, after run `bundle`, therefore use `make setup` for setting up migrations and `make run` to start application, then, visit localhost:3000.
 For linting and tests runninng use `make lint` and `make test` correspondingly.
+Fixtures provided at `/db/seeds.rb`.
 ## Docker setup
 For docker use `make compose-setup`, and after that run `make compose` to start containers. Use `make compose-lint` and `make compose-test` for linting and test execution accordingly. 
