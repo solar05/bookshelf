@@ -88,6 +88,8 @@ en:
     destroyed: "Boook was successfully destroyed!"
     confirm_delete: "Are you sure?"
     back: "Back"
+    empty: "There is no books!"
+    add: "Create one?"
   views:
     pagination:
       first: "&laquo; First"
