@@ -3,11 +3,11 @@
     <div class="card-body text-center">
         <%= form_tag sessions_path do %>
             <div class="form-group">
-                <%= label_tag :email %><br />
+                <%= label_tag t('session.email') %><br />
                 <%= text_field_tag :email, params[:email], class: "form-control" %>
             </div>
             <div class="form-group">
-                <%= label_tag :password %>
+                <%= label_tag t('session.password') %>
                 <%= password_field_tag :password, "", class: "form-control"  %>
             </div>
             <div class="button">

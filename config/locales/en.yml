@@ -98,6 +98,8 @@ en:
       next: "Next &rsaquo;"
       truncate: "&hellip;"
   session:
+    email: "Email"
+    password: "Password"
     log_in: "Log in"
     log_out: "Log out"
     sign_up: "Sign up"

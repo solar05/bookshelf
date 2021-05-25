@@ -67,6 +67,8 @@ ru:
       next: "След &rsaquo;"
       truncate: "&hellip;"
   session:
+    email: "Почта"
+    password: "Пароль"
     log_in: "Войти"
     log_out: "Выйти"
     sign_up: "Зарегистрироваться"
