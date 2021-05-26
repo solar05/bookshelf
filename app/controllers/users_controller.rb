@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :logged?
+  before_action :ensure_logged
 
   def new
     @user = User.new

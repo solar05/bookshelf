@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  before_action :logged?, only: %i[create new]
+  before_action :ensure_logged, only: %i[create new]
   def new; end
 
   def create

@@ -3,7 +3,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
   before_action :require_login
-  before_action :can_access_book?, only: %i[show edit update destroy]
+  before_action :check_book_access, only: %i[show edit update destroy]
 
   # GET /books or /books.json
   def index
@@ -70,16 +70,7 @@ class BooksController < ApplicationController
     params.require(:book).permit(:name, :authors, :annotation, :cover)
   end
 
-  def require_login
-    return if current_user
-
-    respond_to do |format|
-      format.html { redirect_to log_in_path, alert: t('flash.session.login_required') }
-      format.json { head :no_content, status: 401 }
-    end
-  end
-
-  def can_access_book?
+  def check_book_access
     return if @book.user.id == current_user.id
 
     respond_to do |format|

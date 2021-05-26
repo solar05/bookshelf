@@ -20,12 +20,24 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  helper_method :logged?
-  def logged?
+  helper_method :ensure_logged
+
+  def ensure_logged
     return unless current_user
 
     respond_to do |format|
       format.html { redirect_to books_url, notice: t('flash.session.already_logged') }
+    end
+  end
+
+  helper_method :require_login
+
+  def require_login
+    return if current_user
+
+    respond_to do |format|
+      format.html { redirect_to log_in_path, alert: t('flash.session.login_required') }
+      format.json { head :no_content, status: 401 }
     end
   end
 end
